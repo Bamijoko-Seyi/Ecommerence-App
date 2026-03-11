@@ -1,11 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext,useState } from 'react'
+import { ShopContext } from '../assets/context/ShopContext';
+
 
 function Login() {
 
   const [currentState, setCurrentState] = useState('Sign Up')
+  const {token,setToken,navigate,backendUrl} = useContext(ShopContext)
+
+  const [name,setName] = useState('')
+  const [password,setPassword] = useState('')
+  const [email,setEmail] = useState('')
 
   const onsSubmitHandler = async (event) =>{
-    event.preventDefault()
+    event.preventDefault();
+    try{
+
+    } catch (error) {
+
+    }
   }
 
   return (
@@ -14,9 +26,9 @@ function Login() {
           <p className='text-3xl'>{currentState}</p>
           <hr className='border-none h-[1.5px] w-8 bg-gray-800'/>
         </div>
-        {currentState === 'Login' ? '' : <input type='text' className='w-full px-3 py-2 border border-gray-800' placeholder='Name' required/>}
-        <input type='email' className='w-full px-3 py-2 border border-gray-800' placeholder='Email' required/>
-        <input type='password' className='w-full px-3 py-2 border border-gray-800' placeholder='Password' required/>
+        {currentState === 'Login' ? '' : <input onChange={(e)=>setName(e.target.value)} value={name} type='text' className='w-full px-3 py-2 border border-gray-800' placeholder='Name' required/>}
+        <input onChange={(e)=>setEmail(e.target.value)} value={email} type='email' className='w-full px-3 py-2 border border-gray-800' placeholder='Email' required/>
+        <input onChange={(e)=>setPassword(e.target.value)} value={password} type='password' className='w-full px-3 py-2 border border-gray-800' placeholder='Password' required/>
         <div className='w-full flex justify-between text-sm mt-[-8px]'>
           {currentState === 'Sign Up' ? '' : <p className='cursor-pointer'>Forgot your password?</p>}
           {
