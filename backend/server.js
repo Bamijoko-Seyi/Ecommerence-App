@@ -20,6 +20,7 @@ app.use(cors())
 app.use('/api/user',user)
 app.use('/api/product',productRouter)
 app.use('api/cart',cartRouter)
+app.use('api/cart',order)
 
 app.get('/',(req,res)=>{
     res.send("API Working")

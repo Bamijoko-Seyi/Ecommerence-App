@@ -41,17 +41,38 @@ const placeOrderStripe = async (req,res) => {
 
 //All orders for the admin panel
 const allOrders = async (req,res) => {
-    
+    try{
+        const orders = await orderModel.find({})
+        res.json({success:true,orders})
+
+
+    } catch (error){
+
+    }
 }
 
 // Update order status for the Admin Panel
 const updateStatus = async (req,res) => {
+    try{
+        const {orderId,status} = req.body
+
+        await orderModel.findByIdAndUpdate(orderId, { status })
+        res.json({success:true,message:'Status Updated'})
+
+    } catch(error){
+        console.log(error)
+        res.json({success:false,message:error.message})
+    }
 
 }
 
 // All user orders for the frontend
 const userOrders = async (req,res) => {
-    try 
+    try{
+
+    } catch(error){
+        
+    }
 }
 
 export {placeOrder, placeOrderPaypal, placeOrderStripe, allOrders, updateStatus, userOrders};
