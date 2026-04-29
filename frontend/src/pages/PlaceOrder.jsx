@@ -132,12 +132,6 @@ function PlaceOrder() {
 
             </div>
 
-            <div onClick={()=>setMethod('paypal')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
-                <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'paypal' ? 'bg-green-200' : ''} `}></p>
-                <img className='h-10 mx-4' src={assets.paypal_logo}/>
-
-            </div>
-
             <div onClick={()=>setMethod('cod')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
                 <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'cod' ? 'bg-green-200' : ''}`}></p>
                 <p className='text-gray-500 text-sm font-meduim mx-4'>CASH ON DELIVERY</p>

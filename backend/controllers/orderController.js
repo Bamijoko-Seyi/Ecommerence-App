@@ -109,6 +109,9 @@ const verifyStripe = async (req,res) => {
             await orderModel.findByIdAndUpdate(orderId, {payment:true});
             await userModel.findByIdAndUpdate(userId, {cartData: {}})
             res.json()
+        } else{
+            await orderModel.findByIdAndDelete(orderId)
+            res.json({success:false})
         }
         
     } catch (error){
@@ -153,4 +156,4 @@ const userOrders = async (req,res) => {
     }
 }
 
-export {placeOrder, placeOrderPaypal, placeOrderStripe, allOrders, updateStatus, userOrders};
+export {verifyStripe, placeOrder, placeOrderPaypal, placeOrderStripe, allOrders, updateStatus, userOrders};

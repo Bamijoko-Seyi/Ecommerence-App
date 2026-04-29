@@ -1,4 +1,4 @@
-import { placeOrder, placeOrderPaypal, placeOrderPaypal, allOrders, useOrders, updateStatus, placeOrderStripe } from "../controllers/orderController"
+import { placeOrder, placeOrderPaypal, placeOrderPaypal, allOrders, useOrders, updateStatus, placeOrderStripe, verifyStripe } from "../controllers/orderController"
 import express from 'express'
 import adminAuth from '../middleware/adminAuth.js'
 import authUser from "../middleware/auth"
@@ -16,5 +16,8 @@ orderRouter.post('/paypal',authUser,placeOrderPaypal)
 
 // Routes for user features
 orderRouter.post('/userorders',authUser,useOrders)
+
+// Route to very payment
+orderRouter.post('/verifyStripe',authUser,verifyStripe )    
 
 export default orderRouter
